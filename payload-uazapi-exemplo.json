@@ -1,0 +1,42 @@
+{
+  "_comentario": "Exemplo do payload da UAZAPI (formato whatsmeow) para um audio recebido. Dados ficticios. Use so pra entender o SHAPE dos campos ao adaptar pra outro provedor.",
+  "EventType": "messages",
+  "event": "messages",
+  "owner": "5511999999999",
+  "instanceName": "minha-instancia",
+  "BaseUrl": "https://exemplo.uazapi.com",
+  "token": "TOKEN_DA_INSTANCIA",
+  "chat": {
+    "name": "Cliente Exemplo"
+  },
+  "message": {
+    "messageid": "FAKE_MESSAGE_ID_0001",
+    "id": "5511999999999:FAKE_MESSAGE_ID_0001",
+    "messageTimestamp": 1783550000000,
+    "type": "media",
+    "messageType": "AudioMessage",
+    "mediaType": "ptt",
+    "isGroup": false,
+    "fromMe": false,
+    "chatid": "5511988887777@s.whatsapp.net",
+    "sender": "153094193188885@lid",
+    "sender_pn": "5511988887777@s.whatsapp.net",
+    "senderName": "Cliente Exemplo",
+    "text": "",
+    "caption": "",
+    "quoted": "",
+    "edited": "",
+    "reaction": "",
+    "status": "Delivered",
+    "wasSentByApi": false,
+    "content": {
+      "URL": "https://mmg.whatsapp.net/v/t62.0000-24/FAKE.enc?ccb=11-4&oe=00000000",
+      "mediaKey": "BASE64_DA_MEDIA_KEY_AQUI==",
+      "mimetype": "audio/ogg; codecs=opus",
+      "fileSHA256": "BASE64_DO_SHA256==",
+      "fileLength": 28943,
+      "seconds": 12,
+      "PTT": true
+    }
+  }
+}
