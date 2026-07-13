@@ -14,9 +14,31 @@ WhatsApp → UAZAPI (webhook) → Edge Function (Supabase) → whatsapp_messages
 ## O que você precisa
 
 - Uma conta no **Supabase** (tem plano grátis) — https://supabase.com
-- Uma **API de WhatsApp** já conectada. Aqui usamos a **UAZAPI**; o passo a passo de conectar
-  está no **Vídeo 1** (link na descrição do vídeo).
+- Uma **API de WhatsApp** conectada. Aqui usamos a **UAZAPI** — https://uazapi.com
+  (o passo a passo está logo abaixo, no **Passo 0**).
 - Uma **chave do Groq** (grátis) — https://console.groq.com
+
+---
+
+## Passo 0 — Conectar o seu WhatsApp (UAZAPI)
+
+> Se o seu WhatsApp **já está conectado** numa API, pule pro Passo 1.
+
+A UAZAPI é quem "escuta" o seu WhatsApp e avisa a Edge Function quando chega mensagem.
+Conectar é igual a parear o **WhatsApp Web**: você lê um QR code com o celular.
+
+1. Crie sua conta na **UAZAPI** — https://uazapi.com
+2. **Crie uma instância** (é a sua "linha" conectada). Dê um nome qualquer, ex.: `meu-whatsapp`.
+3. A instância vai te mostrar um **QR code**.
+4. No celular: **WhatsApp → Configurações → Aparelhos conectados → Conectar aparelho** →
+   aponte a câmera pro QR code da tela.
+5. A instância deve mudar para **conectada**. Pronto — é só isso.
+
+Guarde a aba aberta: você vai voltar nela no **Passo 5** pra configurar o webhook.
+
+> ⚠️ **A UAZAPI é uma API não-oficial do WhatsApp.** Use no **seu próprio número** e
+> **nunca para disparo em massa** (ver [Uso responsável](#️-uso-responsável)).
+> Recomendo fortemente **não** usar o número principal da sua empresa até você entender o risco.
 
 ---
 
@@ -25,9 +47,9 @@ WhatsApp → UAZAPI (webhook) → Edge Function (Supabase) → whatsapp_messages
 No Supabase, abra **SQL Editor**, cole o conteúdo de [`supabase-tabela.sql`](./supabase-tabela.sql)
 e clique em **Run**.
 
-É a mesma tabela do Vídeo 1 (`whatsapp_messages`). O comando usa `create table if not exists`,
-então pode rodar de novo sem quebrar nada. Se aparecer um aviso de RLS, tudo bem — é esperado
-(a tabela fica protegida; só a função escreve nela).
+A tabela chama `whatsapp_messages`. O comando usa `create table if not exists`, então pode rodar
+de novo sem quebrar nada. Se aparecer um aviso de RLS, tudo bem — é esperado (a tabela fica
+protegida; só a função escreve nela).
 
 ## Passo 2 — Pegar a chave do Groq
 
